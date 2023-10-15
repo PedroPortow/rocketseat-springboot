@@ -27,31 +27,39 @@ public class FilterTaskAuth extends OncePerRequestFilter {
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
     throws ServletException, IOException {
-      var authorization = request.getHeader("Authorization");  
-    
-      var authEnconded = authorization.substring("Basic".length()).trim();
-      byte[] authDecoded = Base64.getDecoder().decode(authEnconded);
-      var authString = new String(authDecoded);
+      
+      var servletPath = request.getServletPath();
+      
+      if(servletPath.startsWith("/tasks/")){
+        var authorization = request.getHeader("Authorization");  
+      
+        var authEnconded = authorization.substring("Basic".length()).trim();
+        byte[] authDecoded = Base64.getDecoder().decode(authEnconded);
+        var authString = new String(authDecoded);
+          
+          
+        String[] credentials = authString.split(":");
+        String username = credentials[0];
+        String password = credentials[1];
         
+        var user = this.userRepository.findByUsername(username);
         
-      String[] credentials = authString.split(":");
-      String username = credentials[0];
-      String password = credentials[1];
-      
-      var user = this.userRepository.findByUsername(username);
-      
-      if(user == null){
-        response.sendError(401);
-      }
-      
-      var passwordVerification = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
+        if(user == null){
+          response.sendError(401);
+        }
+        
+        var passwordVerification = BCrypt.verifyer().verify(password.toCharArray(), user.getPassword());
 
-      if(passwordVerification.verified){
-        filterChain.doFilter(request, response);
+        if(passwordVerification.verified){
+          request.setAttribute("idUser", user.getId());
+          filterChain.doFilter(request, response); // request é o que está vindo na requisição, response é o que vamos enviar pro usuário
+        } else {
+          response.sendError(401);
+        }
       } else {
-        response.sendError(401);
+        filterChain.doFilter(request, response);
       }
-      
+    
         
   }
   
