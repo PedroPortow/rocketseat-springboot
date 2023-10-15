@@ -1,0 +1,10 @@
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/utils/Utils.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/TodolistapiApplication.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/todolist/ITaskRepository.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/todolist/TaskModel.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/user/IUserRepository.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/todolist/TaskController.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/user/UserModel.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/user/UserController.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/filter/FilterTaskAuth.java
+/Users/porto/Desktop/todolistapi/src/main/java/br/com/pedroporto/todolistapi/errors/ExceptionHandlerController.java

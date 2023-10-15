@@ -1,0 +1,10 @@
+br/com/pedroporto/todolistapi/user/UserModel.class
+br/com/pedroporto/todolistapi/filter/FilterTaskAuth.class
+br/com/pedroporto/todolistapi/errors/ExceptionHandlerController.class
+br/com/pedroporto/todolistapi/TodolistapiApplication.class
+br/com/pedroporto/todolistapi/user/UserController.class
+br/com/pedroporto/todolistapi/todolist/ITaskRepository.class
+br/com/pedroporto/todolistapi/utils/Utils.class
+br/com/pedroporto/todolistapi/user/IUserRepository.class
+br/com/pedroporto/todolistapi/todolist/TaskModel.class
+br/com/pedroporto/todolistapi/todolist/TaskController.class
